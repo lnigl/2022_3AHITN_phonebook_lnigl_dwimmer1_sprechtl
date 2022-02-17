@@ -6,24 +6,27 @@ public class Date {
     private int mon;
     private int year;
 
-    public Date(int d, int m, int y){
+    public Date(int d, int m, int y) {
         this.day = d;
         this.mon = m;
         this.year = y;
     }
 
-    public Date (String d){
+    public Date(String d) {
         int i = 1;
         //teilen und int
 
         String[] test = d.split("[.]", 0);
-        for(String myStr: test) {
-            if(i == 1){
-                //d=myStr;
-            }else if(i == 2){
-                //m=myStr;
-            }else{
-                //y=myStr;
+        for (String myStr : test) {
+            if (i == 1) {
+                day = Integer.parseInt(myStr);
+                //day = myStr;
+            } else if (i == 2) {
+                mon = Integer.parseInt(myStr);
+                //mon = myStr;
+            } else {
+                year = Integer.parseInt(myStr);
+                //year = myStr;
             }
             i++;
         }
@@ -41,11 +44,24 @@ public class Date {
         return year;
     }
 
-    public boolean isLeapYear(){
-        return;
+    public boolean isLeapYear() {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+
     }
 
-    public boolean isValid(Date d){
+    public boolean isValid(Date d) {
         return;
     }
 }
