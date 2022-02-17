@@ -13,7 +13,20 @@ public class Date {
     }
 
     public Date (String d){
+        int i = 1;
         //teilen und int
+
+        String[] test = d.split("[.]", 0);
+        for(String myStr: test) {
+            if(i == 1){
+                //d=myStr;
+            }else if(i == 2){
+                //m=myStr;
+            }else{
+                //y=myStr;
+            }
+            i++;
+        }
     }
 
     public int getDay() {

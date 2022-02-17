@@ -5,8 +5,8 @@ public class IllegalDateException {
     int DAY_ILLEGAL;
     int MON_ILLEGAL;
 
-    public IllegalDateException(int var){
-
+    public IllegalDateException(int type){
+        this.type = type;
     }
 
 }
