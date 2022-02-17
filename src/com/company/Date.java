@@ -62,6 +62,16 @@ public class Date {
     }
 
     public boolean isValid(Date d) {
-        return;
+
+
+        if (d.day > 31 || d.day < 0 || d.mon > 12 || d.mon < 0){
+            return false;
+        } else if(d.mon == 2 && d.day > 29){
+            return false;
+        }else{
+            return true;
+        }
+
+        // aufräumen
     }
 }
