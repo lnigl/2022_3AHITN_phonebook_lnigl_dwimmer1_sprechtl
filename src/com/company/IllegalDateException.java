@@ -9,6 +9,9 @@ public class IllegalDateException extends Exception {
         this.type = type;
     }
 
+    public int getType(){
+        return type;
+    }
 
 
 }
