@@ -12,7 +12,7 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(fr);
         ArrayList<Date> dates = new ArrayList<>();
 
-        bufferedReader.readLine();
+        bufferedReader.readLine(); //skips first line
 
 
     }
