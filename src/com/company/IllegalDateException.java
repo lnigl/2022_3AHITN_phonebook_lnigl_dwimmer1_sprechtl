@@ -1,14 +1,14 @@
 package com.company;
 
-public class IllegalDateException {
-    private int type;
-    int DAY_ILLEGAL;
-    int MON_ILLEGAL;
+public class IllegalDateException extends Exception {
+    private final int type;
+    public static final int DAY_ILLEGAL = 1;
+    public static final int MON_ILLEGAL = 0;
 
     public IllegalDateException(int type){
         this.type = type;
-
-        if()
     }
+
+
 
 }
