@@ -7,6 +7,8 @@ public class IllegalDateException {
 
     public IllegalDateException(int type){
         this.type = type;
+
+        if()
     }
 
 }
