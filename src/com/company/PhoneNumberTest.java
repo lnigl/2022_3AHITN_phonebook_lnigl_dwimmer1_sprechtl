@@ -4,6 +4,20 @@ import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*-----------------------------------------------------------------------------
+ *              Hoehere Technische Bundeslehranstalt STEYR
+ *           Fachrichtung Elektronik und Technische Informatik
+ *----------------------------------------------------------------------------*/
+/**
+ * Test Phonenumber
+ *
+ * @author  : Stefan Prechtl
+ * @date    : 04.03.2022
+ *
+ * @details
+ *   Tested isValid und die Exception der PhoneNumber Klasse
+ *
+ */
 class PhoneNumberTest {
 
     @org.junit.jupiter.api.Test

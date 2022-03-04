@@ -3,11 +3,32 @@ package com.company;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*-----------------------------------------------------------------------------
+ *              Hoehere Technische Bundeslehranstalt STEYR
+ *           Fachrichtung Elektronik und Technische Informatik
+ *----------------------------------------------------------------------------*/
+/**
+ * PhoneNumber
+ *
+ * @author  : Stefan Prechtl
+ * @date    : 04.03.2022
+ *
+ * @details
+ *   PhoneNumber mit Exceptionhandling für die Prüfung der Richtigkeit einer Telefonnummer.
+ *
+ */
 public class PhoneNumber {
     private final int country;
     private final int areacode;
     private final int number;
 
+    /**
+     * Konstruktor
+     * @param country Landteil
+     * @param areacode Umgebungsteil
+     * @param number Ziffernteil
+     * @throws IllegalPhoneNumberException Falls einer der Parameter nicht richtig ist.
+     */
     public PhoneNumber(int country, int areacode, int number) throws IllegalPhoneNumberException {
         if (isValidCountryPart(country)){
             throw new IllegalPhoneNumberException(IllegalPhoneNumberException.COUNTRY_ILLEGAL);
@@ -25,6 +46,10 @@ public class PhoneNumber {
         this.number = number;
     }
 
+    /**
+     * @param phoneNumber Vollständige Telefonnummer innerhalb eines Strings.
+     * @throws IllegalPhoneNumberException Falls eine der Teile der Telefonnummer inkorrekt ist.
+     */
     public PhoneNumber(String phoneNumber) throws IllegalPhoneNumberException {
         Pattern pattern = Pattern.compile("(\\+|00)\\d{2} \\d{4}\\/(\\d{6}|\\d{8})");
         Matcher matcher = pattern.matcher(phoneNumber);
@@ -38,33 +63,63 @@ public class PhoneNumber {
         number = Integer.parseInt(phoneNumber.split(" ")[2].split("/")[1]);
     }
 
+    /**
+     * @param c Landteil
+     * @return c zwischen 0 und 100
+     */
     private static boolean isValidCountryPart(int c){
-        return c > 1 && c < 99;
+        return c > 0 && c < 99;
     }
+
+    /**
+     * @param a Umgebungsteil
+     * @return a ist 4 Zeichen lang
+     */
     private static boolean isValidAreaPart(int a){
         return Integer.toString(a).length() == 4;
     }
+
+    /**
+     * @param n Ziffernteil
+     * @return n ist 6 bzw. 8 zeichen Lang
+     */
     private static boolean isValidNumberPart(int n){
         return Integer.toString(n).length() == 6 || Integer.toString(n).length() == 8;
     }
 
+    /**
+     * @return Landteil
+     */
     public int getCountry() {
         return country;
     }
 
+    /**
+     * @return Umgebungsteil
+     */
     public int getAreacode() {
         return areacode;
     }
 
+    /**
+     * @return Ziffernteil
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * @return String ausgabe der PhoneNumber (z.B.: "+43 6606/049919").
+     */
     @Override
     public String toString() {
         return "+" + country + " " + areacode + "/" + number;
     }
 
+    /**
+     * @param phoneNumber Vollständige Telefonnummer innerhalb eines Strings.
+     * @return ob die Telefonnummer richtig.
+     */
     public static boolean isValid(String phoneNumber) {
         Pattern pattern = Pattern.compile("(\\+|00)\\d{2} \\d{4}\\/(\\d{6}|\\d{8})");
         Matcher matcher = pattern.matcher(phoneNumber);
