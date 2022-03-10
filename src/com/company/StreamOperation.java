@@ -18,6 +18,7 @@ public class StreamOperation {
 
         try{
             String[] array = line.split(";");
+            w.write(array.toString());
         }catch (Exception e){
             e.printStackTrace();
         }
